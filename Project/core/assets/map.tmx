@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="300" height="30" tilewidth="16" tileheight="16" nextobjectid="93">
+ <tileset firstgid="1" name="minimal_industry" tilewidth="16" tileheight="16" tilecount="1160" columns="29">
+  <image source="Texture/minimal_industry.png" width="464" height="640"/>
+ </tileset>
+ <tileset firstgid="1161" name="smallBattery" tilewidth="16" tileheight="16" tilecount="260" columns="20">
+  <image source="Sprite/Battery/smallBattery.png" width="320" height="213"/>
+ </tileset>
+ <imagelayer name="background">
+  <image source="Background/background.png" width="10000" height="480"/>
+ </imagelayer>
+ <layer name="platform" width="300" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztnDds1GAYhn0JEqH3JlbKiZWywETZ6YKJIsFGWSgJkEBgoiz0HpDoC70Xib7QIVSJvtBrKKKIB2GLyIrP/9l3Pl/ufaRH/gffH98vfW/82WdblhBCCCGEEEIIIYQQQgghRHxp38CyOuD34tR2ZJ9ODXJ9tEKIQqYnGdTLIId6s08f5ZUQImIaYgk2wsbYxPBzF4uzdkhCCFEnXbArdsPumDT8nPJKCJEvKK+EEPmC8koIkS8or4QQ+YLySggRBUMSljU08X87DIfjCByZMJvDK69m4Wycg+VYgXNxHlbifFwQ9gsIIWLN5yLLqsEeKUzW2tZ4+AVLyZqyYu+tCV55tRrX4Fpch+txA27EKtyEmy39FlWIQmdC0b/txKLU+60kF1YVe29N8Mqrg3gID+MRPIrH8DiewJN4KsW8+i2qENllBs7EUizL4XFU2jk13yevMoFXXt3Am3gLq/E23sG7eA/v4wOfudtFkFdbWKOtuA23R7BeQsSF5bgCV+KqHB5HlV13m3KYV+/wPX7Aj/gJP2MNfsGv+M1n7ijy6jRrdAbP4jnllSgg9uI+3I8Hcngcpv1gJvDKq6YJy2qGze3r9i0T/3TGf2nnc00/irx6yBo9wsf4RHklCogreBWv4fUs/p0tPv1LHPpBN3XllR9R5NUP1ugn/sLfyitRj/B7z8or9nmNb/BtFo/jtE//Eod+0E2m8mohLsLFuMQyu0ea6l6qianusQoRV/zes1JCHTbCxtjEsCaD8NCnf4lDP+gmbF65c2on7krx2SjXQIhc4nUe1dmnP+lKHXbD7pjMYl798Olf6lM/mG5OOUS5BkLkEtP31bnpTx0OwIE4qI6aPIfn8QJetML3MV79SJT94GDWaYjBWvXFfvbYJK+GMucw3M54h2WeUw5RroEQfjjXEJKurek1hmw8LzKGOhyL43B8rZp0cuoJPsVn+NxjDqePmRCizqLshSaRKZMN3p08in1HW/77OU5hzqkhrrerHxRxJOh5v+nzIukwm4yag+VYkUgvpxyc71MZos7i2AtNw+n22LQfDEMc10CIoOf9YZ8XqYs11OFaXIfrE+nllIPzfapC1Fkce6GluMweR5FXcVwDIYKe92fieRE3h6jDw3gEjwasyXzrB03ZjXvscRR5Fcc1ECLoeX8mnhdxc5M6vIXVeDtgTdbXfvASXrbH6gdFoRL0vL/28yIt7HvtrbA1tsG2Cf/nRdzU/l8e9P96fe0HX+BLe6x+UBQafwChZTNG
+  </data>
+ </layer>
+ <layer name="graphics" width="300" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt17sNwkAQRdGRsBPTfxE04pIgdUBCPN4fo3MiR9Yme/U2AgAAAAAAAAAAAAAAAAAAgJFej9knACp7bxGfrc2/Tr0COjr2iOf+/b7bLr0CRvltV4ZeAaNld1b1XrV8OwNtZHdW9V7d3Z89aCjkzOrVqDu7YhtWbCj8g1m9GnVntQHqqP4eXHFfATnVe2VfAQAAAAAAAABAfxfhPRhe
+  </data>
+ </layer>
+ <objectgroup name="ground">
+  <object id="1" x="0" y="384" width="176" height="16"/>
+  <object id="5" x="372" y="357" width="53" height="53">
+   <ellipse/>
+  </object>
+  <object id="7" x="400" y="352" width="96" height="16"/>
+  <object id="13" x="468" y="324" width="55" height="55">
+   <ellipse/>
+  </object>
+  <object id="14" x="496" y="320" width="96" height="16"/>
+  <object id="15" x="594" y="275" width="60" height="60">
+   <ellipse/>
+  </object>
+  <object id="16" x="592" y="304" width="64" height="128"/>
+  <object id="17" x="608" y="256" width="32" height="16"/>
+  <object id="30" x="784" y="368" width="272" height="16"/>
+  <object id="37" x="992" y="224" width="432" height="16"/>
+  <object id="41" x="1360" y="112" width="48" height="16"/>
+  <object id="42" x="1346" y="114" width="23" height="23">
+   <ellipse/>
+  </object>
+  <object id="44" x="1396" y="114" width="23" height="23">
+   <ellipse/>
+  </object>
+  <object id="46" x="1398" y="86" width="40" height="40">
+   <ellipse/>
+  </object>
+  <object id="47" x="1424" y="80" width="128" height="16"/>
+  <object id="48" x="1532" y="85" width="43" height="43">
+   <ellipse/>
+  </object>
+  <object id="49" x="1571" y="369">
+   <polygon points="0,0 9,0 15,16 33,20 29,30 9,21"/>
+  </object>
+  <object id="50" x="1600" y="384" width="320" height="16"/>
+  <object id="53" x="1732" y="370" width="26" height="26">
+   <ellipse/>
+  </object>
+  <object id="54" x="1666" y="211" width="54" height="54">
+   <ellipse/>
+  </object>
+  <object id="57" x="1767" y="212" width="55" height="55">
+   <ellipse/>
+  </object>
+  <object id="58" x="1696" y="208" width="96" height="16"/>
+  <object id="59" x="1824" y="224" width="96" height="16"/>
+  <object id="60" x="1936" y="256" width="16" height="112"/>
+  <object id="61" x="1922" y="227">
+   <polygon points="0,0 15,7 26,27 19,28 12,14 -2,8"/>
+  </object>
+  <object id="62" x="1922" y="389">
+   <polygon points="0,0 12,-7 21,-22 27,-20 20,-1 0,8"/>
+  </object>
+  <object id="63" x="1954" y="381">
+   <polygon points="0,0 119,-59 126,-59 126,-2"/>
+  </object>
+  <object id="64" x="1696" y="256" width="96" height="16"/>
+  <object id="65" x="1728" y="272" width="64" height="16"/>
+  <object id="68" x="2080" y="320" width="512" height="16"/>
+  <object id="69" x="2336" y="272" width="64" height="48"/>
+  <object id="76" x="288" y="384" width="112" height="16"/>
+  <object id="77" x="259" y="387" width="58" height="58">
+   <ellipse/>
+  </object>
+  <object id="79" x="660" y="430" width="123" height="10"/>
+  <object id="80" x="673" y="422" width="110" height="7"/>
+  <object id="83" x="685" y="412" width="98" height="9"/>
+  <object id="84" x="703" y="404" width="80" height="7"/>
+  <object id="85" x="720" y="396" width="63" height="7"/>
+  <object id="86" x="737" y="388" width="46" height="8"/>
+  <object id="87" x="754" y="380" width="30" height="7"/>
+  <object id="88" x="770" y="373" width="12" height="7"/>
+ </objectgroup>
+ <objectgroup name="batteries">
+  <object id="25" x="695" y="234" width="14" height="21"/>
+  <object id="26" x="742" y="251" width="15" height="20"/>
+  <object id="27" x="774" y="283" width="16" height="20"/>
+  <object id="70" x="2483" y="298" width="21" height="21"/>
+  <object id="71" x="1894" y="282" width="16" height="20"/>
+  <object id="72" x="1895" y="317" width="16" height="17"/>
+  <object id="73" x="1897" y="347" width="13" height="21"/>
+  <object id="74" x="1479" y="314" width="15" height="20"/>
+ </objectgroup>
+ <objectgroup name="saw">
+  <object id="89" x="1300" y="210" width="22" height="22">
+   <ellipse/>
+  </object>
+  <object id="90" x="1333" y="210" width="22" height="22">
+   <ellipse/>
+  </object>
+  <object id="92" x="1370" y="208" width="43" height="43">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="ladder">
+  <object id="36" x="992" y="240" width="16" height="128"/>
+ </objectgroup>
+</map>

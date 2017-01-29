@@ -1,0 +1,1 @@
+Open texture atlas as 16px * 16px, 0 px border.
