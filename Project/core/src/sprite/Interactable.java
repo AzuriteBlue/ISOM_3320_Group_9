@@ -1,6 +1,7 @@
 package sprite;
 
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -17,6 +18,6 @@ public abstract class Interactable {
         this.map = map;
     }
 
-    public abstract void onHit(Wiki wiki);
+    public abstract void onWikiHit(Wiki wiki);
 
 }

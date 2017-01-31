@@ -9,11 +9,11 @@ public class Saw extends CircleInteractable {
 
     public Saw(World world, TiledMap map, Ellipse ellipse) {
         super(world, map, ellipse);
-        fixture.setUserData(this);
+        body.getFixtureList().get(0).setUserData(this);
     }
 
     @Override
-    public void onHit(Wiki wiki) {
-        System.out.println("saw");
+    public void onWikiHit(Wiki wiki) {
+        wiki.die();
     }
 }
