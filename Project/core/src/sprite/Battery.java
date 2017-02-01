@@ -1,6 +1,7 @@
 package sprite;
 
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
@@ -26,10 +27,14 @@ public class Battery extends RectInteractable {
         // 1. add score
         if (!this.collected) HUD.addScore(100);
 
-        // 2. turn off collision for that body
+        // 2. play sound
+        Sound sound = WikiJump.assetManager.get("audio/sound/picked.mp3", Sound.class);
+        sound.play(0.3f);
+
+        // 3. turn off collision for that body
         collected = true;
 
-        // 3. turn off rendering of this object
+        // 4. turn off rendering of this object
         TiledMapTileLayer tileLayer = (TiledMapTileLayer) map.getLayers().get(2);
         int lowerY = (int)(body.getPosition().y * WikiJump.PPM / 16);
         int upperY = lowerY + 1;

@@ -59,4 +59,14 @@ public class Bullet extends Sprite {
         }
     }
 
+    public void destroy() {
+        this.destroyed = true;
+
+        // remove reference
+        if (playScreen.bullets.contains(this, true)) {
+            int index = playScreen.bullets.indexOf(this, true);
+            playScreen.bullets.removeIndex(index);
+        }
+    }
+
 }

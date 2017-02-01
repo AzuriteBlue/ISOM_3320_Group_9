@@ -42,7 +42,7 @@ public class MyContactListener implements ContactListener {
             } else if (otherFix.getUserData() instanceof Sprite) {
 
             } else {
-                wiki.boosted = false;
+//                wiki.boosted = false;
                 wiki.jumped = false;
             }
         }
@@ -64,20 +64,17 @@ public class MyContactListener implements ContactListener {
                 otherFix = fixtureA;
             }
 
+
+            ((Bullet) bulletFix.getUserData()).destroy();
+
             if (otherFix.getUserData() instanceof Wiki) {
+                ((Wiki) otherFix.getUserData()).die();
 
             } else if (otherFix.getUserData() instanceof Enemy) {
                 ((Enemy) otherFix.getUserData()).die();
-            } else {
-                Bullet bullet = (Bullet) (bulletFix.getUserData());
 
-                bullet.destroyed = true;
-
-                // remove reference
-                if (playScreen.bullets.contains(bullet, true)) {
-                    int index = playScreen.bullets.indexOf(bullet, true);
-                    playScreen.bullets.removeIndex(index);
-                }
+            } else if (otherFix.getUserData() instanceof Bullet) {
+                ((Bullet) otherFix.getUserData()).destroy();
             }
         }
 
@@ -86,19 +83,23 @@ public class MyContactListener implements ContactListener {
 
 
         // if a bullet hits an enemy
-        if ((fixtureA.getUserData() instanceof Enemy && fixtureB.getUserData() instanceof Bullet)
-                || (fixtureB.getUserData() instanceof  Enemy && fixtureA.getUserData() instanceof Bullet)) {
+//        if ((fixtureA.getUserData() instanceof Enemy && fixtureB.getUserData() instanceof Bullet)
+//                || (fixtureB.getUserData() instanceof  Enemy && fixtureA.getUserData() instanceof Bullet)) {
+//
+//            Fixture enemyFix = fixtureA.getUserData() instanceof Enemy ? fixtureA : fixtureB;
+//            Fixture bulletFix = fixtureA.getUserData() instanceof Bullet ? fixtureA : fixtureB;
+//            ((Enemy)enemyFix.getUserData()).die();
+//            ((Bullet)bulletFix.getUserData()).destroy();
+//        }
 
-            Fixture enemyFix = fixtureA.getUserData() instanceof Enemy ? fixtureA : fixtureB;
-            ((Enemy)enemyFix.getUserData()).die();
-        }
-
-        if ((fixtureA.getUserData() instanceof Wiki && fixtureB.getUserData() instanceof Bullet)
-                || (fixtureB.getUserData() instanceof  Wiki && fixtureA.getUserData() instanceof Bullet)) {
-
-            Fixture wikiFix = fixtureA.getUserData() instanceof Wiki ? fixtureA : fixtureB;
-            ((Wiki)wikiFix.getUserData()).die();
-        }
+//        if ((fixtureA.getUserData() instanceof Wiki && fixtureB.getUserData() instanceof Bullet)
+//                || (fixtureB.getUserData() instanceof  Wiki && fixtureA.getUserData() instanceof Bullet)) {
+//
+//            Fixture wikiFix = fixtureA.getUserData() instanceof Wiki ? fixtureA : fixtureB;
+//            Fixture bulletFix = fixtureA.getUserData() instanceof Bullet ? fixtureA : fixtureB;
+//            ((Wiki)wikiFix.getUserData()).die();
+//            ((Bullet)bulletFix.getUserData()).destroy();
+//        }
 
 
 

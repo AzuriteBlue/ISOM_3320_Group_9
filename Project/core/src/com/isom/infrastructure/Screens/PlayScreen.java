@@ -1,24 +1,12 @@
 package com.isom.infrastructure.Screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.EllipseShapeBuilder;
-import com.badlogic.gdx.maps.MapLayer;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.CircleMapObject;
-import com.badlogic.gdx.maps.objects.EllipseMapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Ellipse;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -51,6 +39,8 @@ public class PlayScreen implements Screen{
 
 
 
+
+
     public World getWorld() {return world;}
 
 
@@ -71,8 +61,8 @@ public class PlayScreen implements Screen{
 
         // 3. create main character
         wiki = new Wiki(world, this);
-        bullets = new Array<>();
-        bastions = new Array<>();
+        bullets = new Array<Bullet>();
+        bastions = new Array<Bastion>();
         WorldCreator.createBastions(bastions, this);
 
 
@@ -80,11 +70,9 @@ public class PlayScreen implements Screen{
         world.setContactListener(new MyContactListener(this, wiki));
         world.setContactFilter(new MyContactFilter(this, wiki));
 
-        // 4. play music
+//        System.out.println(new Exception().getStackTrace()[1].getClassName());
 
-//        Music music = game.assetManager.get("Audio/Music/Reveries.mp3", Music.class);
-//        music.setLooping(true);
-//        music.play();
+
 
     }
 
@@ -107,7 +95,7 @@ public class PlayScreen implements Screen{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // 2. render the map
-        //mapRenderer.setView(cam);
+        mapRenderer.setView(cam);
         mapRenderer.render();
 
         // 3. render the HUD
@@ -129,12 +117,14 @@ public class PlayScreen implements Screen{
 
     private void update(float delta) {
 
-        world.step(1/60f, 6, 2);
+        world.step(1/80f, 6, 2);
 
         InputHandler.handleInput(wiki);
+//        System.out.println("handle input");
 
         // let camera follow wiki
         if (wiki.body.getPosition().x > 10.25) cam.position.x = wiki.body.getPosition().x;
+//        System.out.println("cam follow");
 
         hud.update(delta);
         wiki.update(delta);
@@ -142,9 +132,13 @@ public class PlayScreen implements Screen{
         for (Bastion bastion : bastions) {bastion.update(delta);}
         cam.update();
         mapRenderer.setView(cam);
+//        System.out.println("updates");
 
         // set anything as dead if it fell off a cliff
         if (wiki.body.getPosition().y < 0) wiki.die();
+//        System.out.println("check dead");
+
+
     }
 
     @Override
@@ -169,10 +163,16 @@ public class PlayScreen implements Screen{
 
     @Override
     public void dispose() {
+        bullets.clear();
+        bastions.clear();
+
         map.dispose();
         world.dispose();
         mapRenderer.dispose();
         debugRenderer.dispose();
         hud.dispose();
+
+
+
     }
 }

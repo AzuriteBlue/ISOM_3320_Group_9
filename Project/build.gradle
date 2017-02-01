@@ -58,3 +58,32 @@ project(":core") {
 tasks.eclipse.doLast {
     delete ".project"
 }
+
+
+//def javaVersion = JavaVersion.VERSION_1_8;
+//sourceCompatibility = javaVersion;
+//targetCompatibility = javaVersion; // defaults to sourceCompatibility
+
+// task enforceVersion << {
+//     def foundVersion = JavaVersion.current();
+//     if (foundVersion != javaVersion) 
+//         throw new IllegalStateException("Wrong Java version; required is "
+//             + javaVersion + ", but found " + foundVersion);
+// }
+
+//compileJava.dependsOn(enforceVersion);
+
+
+
+
+
+// task checkJavaVersion << {
+//     if (!JavaVersion.current().isJava8()) {
+//         String message = "ERROR: Java 1.6 required but " +
+//                           JavaVersion.current() +
+//                           " found. Change your JAVA_HOME environment variable.";
+//         throw new IllegalStateException(message);
+//     }
+// }
+
+// compileJava.dependsOn checkJavaVersion

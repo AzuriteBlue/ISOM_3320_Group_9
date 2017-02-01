@@ -61,10 +61,10 @@ public class Bastion extends Enemy {
         }
         currentX = (int)(getX()*WikiJump.PPM);
 
-        if (currentX <= leftLimit) {
+        if (currentX < leftLimit) {
             direction = Direction.RIGHT;
             this.flip(true,false);
-        } else if (currentX >= rightLimit) {
+        } else if (currentX > rightLimit) {
             direction = Direction.LEFT;
             this.flip(true,false);
         }

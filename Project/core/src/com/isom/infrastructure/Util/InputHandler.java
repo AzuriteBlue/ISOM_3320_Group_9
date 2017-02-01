@@ -18,7 +18,7 @@ public class InputHandler {
                 || Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
 
             if (!wiki.jumped) wiki.jump();
-            else if (!wiki.boosted) wiki.boost();
+//            else if (!wiki.boosted) wiki.boost();
 
 
 
