@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.isom.infrastructure.Scene.HUD;
+import com.isom.infrastructure.Util.ToPlayScreen;
+import com.isom.infrastructure.Util.ToScoreScreen;
 import com.isom.infrastructure.WikiJump;
 import sprite.Interactable;
 
@@ -89,23 +91,11 @@ public class GameOverScreen implements Screen {
         scoreLabel = new Label("YOUR SCORE: "+Integer.toString(HUD.getScore()), new Label.LabelStyle(captainFont, Color.BLACK));
 
         highScoreButton = new TextButton("SCORE", skin);
-        highScoreButton.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.scoreScreen = new ScoreScreen(game);
-                game.setScreen(game.scoreScreen);
-            }
-        });
+        highScoreButton.addListener(new ToScoreScreen(game));
         highScoreButton.center();
 
         restartButton = new TextButton("RESTART", skin);
-        restartButton.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.playScreen = new PlayScreen(game);
-                game.setScreen(game.playScreen);
-            }
-        });
+        restartButton.addListener(new ToPlayScreen(game));
         restartButton.center();
 
 

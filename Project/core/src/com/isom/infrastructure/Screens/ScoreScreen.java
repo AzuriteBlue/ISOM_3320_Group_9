@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.isom.infrastructure.Scene.HUD;
+import com.isom.infrastructure.Util.ToPlayScreen;
 import com.isom.infrastructure.WikiJump;
 
 
@@ -89,13 +90,7 @@ public class ScoreScreen implements Screen {
 
 
         restartButton = new TextButton("RESTART", skin);
-        restartButton.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.playScreen = new PlayScreen(game);
-                game.setScreen(game.playScreen);
-            }
-        });
+        restartButton.addListener(new ToPlayScreen(game));
         restartButton.center();
 
 

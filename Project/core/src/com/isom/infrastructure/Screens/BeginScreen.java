@@ -14,7 +14,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.isom.infrastructure.Util.ToPlayScreen;
 import com.isom.infrastructure.WikiJump;
+import sprite.Wiki;
 
 public class BeginScreen implements Screen {
 
@@ -71,7 +73,7 @@ public class BeginScreen implements Screen {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                music = game.assetManager.get("audio/music/House.mp3", Music.class);
+                music = WikiJump.assetManager.get("audio/music/House.mp3", Music.class);
                 music.setLooping(true);
                 music.setVolume(0.3f);
                 music.play();
@@ -97,19 +99,14 @@ public class BeginScreen implements Screen {
 
         titleLabel = new Label("<WIKIJUMP />", new Label.LabelStyle(aboveFont, Color.WHITE));
 
-
-
         startButton = new TextButton("START", skin);
-        startButton.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                game.playScreen = new PlayScreen(game);
-                game.setScreen(game.playScreen);
-            }
-        });
+        startButton.addListener(new ToPlayScreen(game));
         startButton.center();
 
 
+
+
+        //TODO: helpScreen
 
         helpButton = new TextButton("HELP", skin);
         helpButton.addListener(new ClickListener(){

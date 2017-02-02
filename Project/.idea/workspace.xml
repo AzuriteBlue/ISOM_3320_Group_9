@@ -38,20 +38,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="Bullet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/sprite/Bullet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="48" column="37" lean-forward="false" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="InputHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/InputHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="525">
               <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
               <folding />
             </state>
@@ -61,33 +51,9 @@
       <file leaf-file-name="Wiki.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/sprite/Wiki.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3604">
-              <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ladder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/sprite/Ladder.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="665">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyContactListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="117" column="4" lean-forward="false" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="5" />
-              <folding>
-                <element signature="method#postSolve#0;class#MyContactListener#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -95,23 +61,55 @@
       <file leaf-file-name="GameOverScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/GameOverScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5040">
-              <caret line="169" column="18" lean-forward="false" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+            <state relative-caret-position="2695">
+              <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
               <folding>
-                <element signature="e#2873#3114#0" expanded="true" />
-                <element signature="e#3113#3114#0" expanded="true" />
-                <element signature="e#4354#4355#0" expanded="true" />
-                <element signature="e#4379#4380#0" expanded="true" />
+                <element signature="e#4015#4016#0" expanded="true" />
+                <element signature="e#4040#4041#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyContactFilter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScoreScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/ScoreScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="92" column="55" lean-forward="false" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ladder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/sprite/Ladder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ToScoreScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/ToScoreScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#407#408#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyContactFilter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="27" column="95" lean-forward="true" selection-start-line="27" selection-start-column="95" selection-end-line="27" selection-end-column="95" />
+            <state relative-caret-position="735">
+              <caret line="27" column="95" lean-forward="false" selection-start-line="27" selection-start-column="95" selection-end-line="27" selection-end-column="95" />
               <folding />
             </state>
           </provider>
@@ -120,12 +118,9 @@
       <file leaf-file-name="Saw.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/sprite/Saw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="455">
               <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding>
-                <element signature="e#405#406#0" expanded="true" />
-                <element signature="e#431#432#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -133,11 +128,25 @@
       <file leaf-file-name="BeginScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/BeginScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2674">
-              <caret line="179" column="18" lean-forward="false" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
+            <state relative-caret-position="3045">
+              <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
               <folding>
-                <element signature="e#4351#4352#0" expanded="true" />
-                <element signature="e#4376#4377#0" expanded="true" />
+                <element signature="e#4233#4234#0" expanded="true" />
+                <element signature="e#4258#4259#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ToPlayScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/ToPlayScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#353#354#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -913,7 +922,6 @@
         <option value="$PROJECT_DIR$/core/src/sprite/Interactable.java" />
         <option value="$PROJECT_DIR$/core/src/sprite/Saw.java" />
         <option value="$PROJECT_DIR$/core/src/sprite/bullet.java" />
-        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactFilter.java" />
         <option value="$PROJECT_DIR$/core/src/sprite/Direction.java" />
         <option value="$PROJECT_DIR$/core/src/sprite/EBullet.java" />
         <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/TestScreen.java" />
@@ -927,14 +935,17 @@
         <option value="$PROJECT_DIR$/core/src/sprite/Battery.java" />
         <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/InputHandler.java" />
         <option value="$PROJECT_DIR$/core/src/sprite/Bullet.java" />
-        <option value="$PROJECT_DIR$/core/src/sprite/Ladder.java" />
         <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactListener.java" />
         <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Scene/HUD.java" />
-        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/BeginScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/GameOverScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/ScoreScreen.java" />
         <option value="$PROJECT_DIR$/core/src/sprite/Wiki.java" />
         <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/PlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactFilter.java" />
+        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/ToPlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/BeginScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/ToScoreScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/GameOverScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/ScoreScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/sprite/Ladder.java" />
       </list>
     </option>
   </component>
@@ -965,6 +976,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1116,8 +1129,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1584,11 +1595,13 @@
       <workItem from="1485938793830" duration="269000" />
       <workItem from="1486004477992" duration="1318000" />
       <workItem from="1486020220991" duration="5851000" />
+      <workItem from="1486036976017" duration="690000" />
+      <workItem from="1486037763598" duration="254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112479000" />
+    <option name="totallyTimeSpent" value="113423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3026" height="1946" extended-state="6" />
@@ -1675,21 +1688,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/desktop/src/com/isom/desktop/DesktopLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/WikiJump.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/PlayScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2380">
@@ -1698,8 +1696,8 @@
             <element signature="imports" expanded="true" />
             <element signature="method#pause#0;class#PlayScreen#0" expanded="false" />
             <element signature="method#resume#0;class#PlayScreen#0" expanded="false" />
-            <element signature="e#4384#4385#0" expanded="true" />
-            <element signature="e#4409#4410#0" expanded="true" />
+            <element signature="e#4384#4385#0" expanded="false" />
+            <element signature="e#4409#4410#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1708,9 +1706,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1645">
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1718,7 +1714,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="method#addHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="method#getHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="e#3136#3137#0" expanded="false" />
+            <element signature="e#3171#3172#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1773,8 +1774,8 @@
             <element signature="imports" expanded="true" />
             <element signature="method#pause#0;class#PlayScreen#0" expanded="false" />
             <element signature="method#resume#0;class#PlayScreen#0" expanded="false" />
-            <element signature="e#4384#4385#0" expanded="true" />
-            <element signature="e#4409#4410#0" expanded="true" />
+            <element signature="e#4384#4385#0" expanded="false" />
+            <element signature="e#4409#4410#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1783,9 +1784,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1793,7 +1792,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
           <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="method#addHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="method#getHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="e#3136#3137#0" expanded="false" />
+            <element signature="e#3171#3172#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1820,8 +1824,8 @@
             <element signature="imports" expanded="true" />
             <element signature="method#pause#0;class#PlayScreen#0" expanded="false" />
             <element signature="method#resume#0;class#PlayScreen#0" expanded="false" />
-            <element signature="e#4384#4385#0" expanded="true" />
-            <element signature="e#4409#4410#0" expanded="true" />
+            <element signature="e#4384#4385#0" expanded="false" />
+            <element signature="e#4409#4410#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1830,7 +1834,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
           <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="method#addHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="method#getHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="e#3136#3137#0" expanded="false" />
+            <element signature="e#3171#3172#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1857,8 +1866,8 @@
             <element signature="imports" expanded="true" />
             <element signature="method#pause#0;class#PlayScreen#0" expanded="false" />
             <element signature="method#resume#0;class#PlayScreen#0" expanded="false" />
-            <element signature="e#4384#4385#0" expanded="true" />
-            <element signature="e#4409#4410#0" expanded="true" />
+            <element signature="e#4384#4385#0" expanded="false" />
+            <element signature="e#4409#4410#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1867,7 +1876,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#addHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="method#getHighScore#0;class#HUD#0" expanded="false" />
+            <element signature="e#3136#3137#0" expanded="false" />
+            <element signature="e#3171#3172#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1947,7 +1961,7 @@
         <state relative-caret-position="2100">
           <caret line="65" column="11" lean-forward="false" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1981,30 +1995,24 @@
         <state relative-caret-position="1366">
           <caret line="42" column="22" lean-forward="false" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/sprite/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
+        <state relative-caret-position="1435">
           <caret line="48" column="37" lean-forward="false" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/sprite/Ladder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
+        <state relative-caret-position="3955">
           <caret line="117" column="4" lean-forward="false" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="5" />
           <folding>
             <element signature="method#postSolve#0;class#MyContactListener#0" expanded="false" />
@@ -2019,73 +2027,33 @@
           <folding>
             <element signature="method#addHighScore#0;class#HUD#0" expanded="false" />
             <element signature="method#getHighScore#0;class#HUD#0" expanded="false" />
-            <element signature="e#3136#3137#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
+            <element signature="e#3136#3137#0" expanded="false" />
+            <element signature="e#3171#3172#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/InputHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="525">
           <caret line="21" column="56" lean-forward="false" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/ScoreScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="981">
-          <caret line="168" column="30" lean-forward="false" selection-start-line="168" selection-start-column="30" selection-end-line="168" selection-end-column="30" />
-          <folding>
-            <element signature="e#4160#4161#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/sprite/Wiki.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3604">
+        <state relative-caret-position="665">
           <caret line="28" column="11" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/BeginScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2674">
-          <caret line="179" column="18" lean-forward="false" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
-          <folding>
-            <element signature="e#4351#4352#0" expanded="true" />
-            <element signature="e#4376#4377#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/GameOverScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5040">
-          <caret line="169" column="18" lean-forward="false" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
-          <folding>
-            <element signature="e#2873#3114#0" expanded="true" />
-            <element signature="e#3113#3114#0" expanded="true" />
-            <element signature="e#4354#4355#0" expanded="true" />
-            <element signature="e#4379#4380#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/sprite/Saw.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
+        <state relative-caret-position="455">
           <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2097,16 +2065,78 @@
             <element signature="imports" expanded="true" />
             <element signature="method#pause#0;class#PlayScreen#0" expanded="false" />
             <element signature="method#resume#0;class#PlayScreen#0" expanded="false" />
-            <element signature="e#4384#4385#0" expanded="true" />
-            <element signature="e#4409#4410#0" expanded="true" />
+            <element signature="e#4384#4385#0" expanded="false" />
+            <element signature="e#4409#4410#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/MyContactFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="27" column="95" lean-forward="true" selection-start-line="27" selection-start-column="95" selection-end-line="27" selection-end-column="95" />
+        <state relative-caret-position="735">
+          <caret line="27" column="95" lean-forward="false" selection-start-line="27" selection-start-column="95" selection-end-line="27" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/BeginScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
+          <folding>
+            <element signature="e#4233#4234#0" expanded="true" />
+            <element signature="e#4258#4259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/ToPlayScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Util/ToScoreScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/GameOverScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2695">
+          <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+          <folding>
+            <element signature="e#4015#4016#0" expanded="true" />
+            <element signature="e#4040#4041#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/isom/infrastructure/Screens/ScoreScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="92" column="55" lean-forward="false" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/sprite/Ladder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -15,8 +15,8 @@ public class Ladder extends RectInteractable {
 
     @Override
     public void onWikiHit(Wiki wiki) {
-
-        wiki.body.applyLinearImpulse(new Vector2(0, 8f - wiki.body.getLinearVelocity().y), wiki.body.getWorldCenter(), true);
+        if (wiki.body.getLinearVelocity().y >= 0 || wiki.body.getLinearVelocity().x != 0)
+            wiki.body.applyLinearImpulse(new Vector2(0, 8f - wiki.body.getLinearVelocity().y), wiki.body.getWorldCenter(), true);
 
     }
 }
