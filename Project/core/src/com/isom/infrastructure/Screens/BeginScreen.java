@@ -177,7 +177,7 @@ public class BeginScreen implements Screen {
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     @Override

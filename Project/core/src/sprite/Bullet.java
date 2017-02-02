@@ -25,7 +25,6 @@ public class Bullet extends Sprite {
 
     // TODO
     private static Texture bulletTexture = new Texture("Sprite/Bullet.png");
-    private TextureRegion textureRegion;
 
 
 
@@ -33,7 +32,6 @@ public class Bullet extends Sprite {
 
         // TODO
         super(bulletTexture);
-        textureRegion = new TextureRegion(getTexture());
         setBounds(0,0, sideX*3/ WikiJump.PPM, sideY*3/WikiJump.PPM);
 
 
@@ -41,8 +39,15 @@ public class Bullet extends Sprite {
         this.playScreen = playScreen;
         body = BodyCreator.createRectangleBody(world, posX, posY, sideX, sideY);
         body.getFixtureList().get(0).setUserData(this);
+        body.setGravityScale(0);
 
         this.direction = direction;
+
+        if (direction == Direction.RIGHT) {
+            body.setLinearVelocity(4f, 0);
+        } else {
+            body.setLinearVelocity(-4f, 0);
+        }
     }
 
 
@@ -50,13 +55,6 @@ public class Bullet extends Sprite {
     public void update(float delta) {
         setPosition(body.getPosition().x - getWidth()/2, body.getPosition().y - getHeight()/2);
 
-        if (direction == Direction.RIGHT) {
-            body.applyForceToCenter(0, 10f, true);
-            body.setLinearVelocity(3f, 0);
-        } else {
-            body.applyForceToCenter(0, 10f, true);
-            body.setLinearVelocity(-3f, 0);
-        }
     }
 
     public void destroy() {

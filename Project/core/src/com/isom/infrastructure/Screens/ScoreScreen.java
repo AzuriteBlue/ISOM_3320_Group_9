@@ -158,11 +158,14 @@ public class ScoreScreen implements Screen {
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     @Override
     public void dispose() {
-
+        stage.dispose();
+        skin.dispose();
+        aboveFont.dispose();
+        captainFont.dispose();
     }
 }

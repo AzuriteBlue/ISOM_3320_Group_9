@@ -36,6 +36,8 @@ public class GameOverScreen implements Screen {
     TextButton exitButton;
     TextButton highScoreButton;
 
+    String overText;
+
 
 
 
@@ -45,7 +47,7 @@ public class GameOverScreen implements Screen {
 
 
 
-    public GameOverScreen(WikiJump game) {
+    public GameOverScreen(WikiJump game, boolean hasWon) {
 
         aboveFont = new BitmapFont(Gdx.files.internal("fonts/above/above.fnt")); //Gdx.files.internal("fonts/above_0.tga")
         aboveFont.getData().setScale(1.3f, 1.3f);
@@ -67,6 +69,8 @@ public class GameOverScreen implements Screen {
         stage = new Stage(viewport, game.batch);
         Gdx.input.setInputProcessor(stage);
 
+        overText = hasWon ? "YOU WIN!" : "YOU LOSE!";
+
     }
 
 
@@ -81,7 +85,7 @@ public class GameOverScreen implements Screen {
         //table.setDebug(true);
 
 
-        titleLabel = new Label("GAME OVER", new Label.LabelStyle(captainFont, Color.BLACK));
+        titleLabel = new Label(overText, new Label.LabelStyle(captainFont, Color.BLACK));
         scoreLabel = new Label("YOUR SCORE: "+Integer.toString(HUD.getScore()), new Label.LabelStyle(captainFont, Color.BLACK));
 
         highScoreButton = new TextButton("SCORE", skin);
@@ -163,7 +167,7 @@ public class GameOverScreen implements Screen {
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     @Override

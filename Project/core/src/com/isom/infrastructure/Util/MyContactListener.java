@@ -2,6 +2,7 @@ package com.isom.infrastructure.Util;
 
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.isom.infrastructure.Screens.PlayScreen;
 import sprite.*;
@@ -108,7 +109,12 @@ public class MyContactListener implements ContactListener {
 
     @Override
     public void endContact(Contact contact) {
-
+//        Fixture fixtureA = contact.getFixtureA();
+//        Fixture fixtureB = contact.getFixtureB();
+//
+//        if ((fixtureA.getUserData() instanceof Ladder && fixtureB.getUserData() instanceof Wiki)
+//                || (fixtureB.getUserData() instanceof  Ladder && fixtureA.getUserData() instanceof Wiki))
+//            wiki.body.applyLinearImpulse(new Vector2(3f,0), wiki.body.getWorldCenter(), true);
     }
 
     @Override

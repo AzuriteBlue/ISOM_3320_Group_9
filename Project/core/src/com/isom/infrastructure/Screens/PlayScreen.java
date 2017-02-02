@@ -2,7 +2,6 @@ package com.isom.infrastructure.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -27,7 +26,7 @@ public class PlayScreen implements Screen{
     private OrthographicCamera cam = new OrthographicCamera();
     private Viewport viewport = new FitViewport(game.V_WIDTH / game.PPM, game.V_HEIGHT / game.PPM,cam);
     private OrthogonalTiledMapRenderer mapRenderer;
-    private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
+//    private Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 
 
     // things requiring render
@@ -35,6 +34,7 @@ public class PlayScreen implements Screen{
     public Wiki wiki;
     public Array<Bullet> bullets;
     public Array<Bastion> bastions;
+    public Array<Sentry> sentries;
 
 
 
@@ -55,7 +55,7 @@ public class PlayScreen implements Screen{
         cam.position.set(viewport.getWorldWidth()/2, viewport.getWorldHeight()/2, 0);
 
         // 2. create world and pass necessary objects
-        world = WorldCreator.createWorld();
+        world = WorldCreator.createWorld(this);
         map = WorldCreator.getMap();
         mapRenderer = WorldCreator.getMapRenderer();
 
@@ -63,6 +63,7 @@ public class PlayScreen implements Screen{
         wiki = new Wiki(world, this);
         bullets = new Array<Bullet>();
         bastions = new Array<Bastion>();
+        sentries = new Array<Sentry>();
         WorldCreator.createBastions(bastions, this);
 
 
@@ -95,7 +96,7 @@ public class PlayScreen implements Screen{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // 2. render the map
-        mapRenderer.setView(cam);
+//        mapRenderer.setView(cam);
         mapRenderer.render();
 
         // 3. render the HUD
@@ -117,7 +118,7 @@ public class PlayScreen implements Screen{
 
     private void update(float delta) {
 
-        world.step(1/80f, 6, 2);
+        world.step(1/60f, 6, 2);
 
         InputHandler.handleInput(wiki);
 //        System.out.println("handle input");
@@ -130,12 +131,19 @@ public class PlayScreen implements Screen{
         wiki.update(delta);
         for (Bullet bullet : bullets) {bullet.update(delta);}
         for (Bastion bastion : bastions) {bastion.update(delta);}
+        for (Sentry sentry : sentries) {sentry.update(delta);}
         cam.update();
         mapRenderer.setView(cam);
 //        System.out.println("updates");
 
         // set anything as dead if it fell off a cliff
-        if (wiki.body.getPosition().y < 0) wiki.die();
+        if (wiki.body.getPosition().y < 0) {
+            if (!WikiJump.godMode) wiki.die();
+            else {
+                game.playScreen = new PlayScreen(game);
+                game.setScreen(game.playScreen);
+            }
+        }
 //        System.out.println("check dead");
 
 
@@ -158,21 +166,22 @@ public class PlayScreen implements Screen{
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     @Override
     public void dispose() {
         bullets.clear();
         bastions.clear();
+        sentries.clear();
 
         map.dispose();
         world.dispose();
-        mapRenderer.dispose();
-        debugRenderer.dispose();
+//        mapRenderer.dispose();
+//        debugRenderer.dispose();
         hud.dispose();
 
-
-
     }
+
+
 }

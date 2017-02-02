@@ -12,6 +12,8 @@ import com.isom.infrastructure.Screens.ScoreScreen;
 
 public class WikiJump extends Game {
 
+	public static boolean godMode = false;
+
     // constants for virtual height and virtual width
 	public static final int V_WIDTH = 1024;
     public static final int V_HEIGHT = 480;
@@ -39,6 +41,7 @@ public class WikiJump extends Game {
 		assetManager.load("audio/sound/wiki-spawn.mp3", Sound.class);
         assetManager.load("audio/sound/enemy-die.mp3", Sound.class);
 		assetManager.load("audio/sound/picked.mp3", Sound.class);
+		assetManager.load("audio/sound/win.mp3", Sound.class);
 		assetManager.finishLoading();
 
 		beginScreen = new BeginScreen(this);

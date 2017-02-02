@@ -30,7 +30,7 @@ public class WorldCreator {
 
 
 
-    public static World createWorld() {
+    public static World createWorld(PlayScreen playScreen) {
         // load map
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("map.tmx");
@@ -80,6 +80,12 @@ public class WorldCreator {
         for (RectangleMapObject rectMapObj : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = rectMapObj.getRectangle();
             new Ladder(world, map, rect);
+        }
+
+        // 2.4 load all ladder
+        for (RectangleMapObject rectMapObj : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)) {
+            Rectangle rect = rectMapObj.getRectangle();
+            new Gate(world, map, playScreen, rect);
         }
 
 

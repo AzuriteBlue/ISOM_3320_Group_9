@@ -48,6 +48,7 @@ public class HUD implements Disposable{
     private Label scoreTitleLabel, scoreLabel;
     private Label timeTitleLabel, timeLabel; // "cd" for countdown
     private Label posLabel;
+    private static Label godModeLabel;
 
     private BitmapFont captainFont = new BitmapFont(Gdx.files.internal("fonts/captain/captain.fnt"));
     private static Scanner scanner;
@@ -91,6 +92,9 @@ public class HUD implements Disposable{
         } catch (IndexOutOfBoundsException e) {
             return 0;
         }
+    }
+    public static Label getGodModeLabel() {
+        return godModeLabel;
     }
 
 
@@ -139,11 +143,13 @@ public class HUD implements Disposable{
 
         scoreTitleLabel = new Label("SCORE",
                 new Label.LabelStyle(captainFont, Color.WHITE));
-        scoreLabel = new Label(String.format("%6d", score),
+        scoreLabel = new Label(String.format("%-6d", score),
                 new Label.LabelStyle(captainFont, Color.WHITE));
         timeTitleLabel = new Label("TIME",
                 new Label.LabelStyle(captainFont, Color.WHITE));
         timeLabel = new Label(formatter.format(time) + " s",
+                new Label.LabelStyle(captainFont, Color.WHITE));
+        godModeLabel = new Label(WikiJump.godMode ? "GOD MODE!" : "",
                 new Label.LabelStyle(captainFont, Color.WHITE));
 
         //table.setDebug(true);
@@ -152,6 +158,9 @@ public class HUD implements Disposable{
         table.row();
         table.add(scoreLabel).left().padLeft(20);
         table.add(timeLabel).right().padRight(20);
+        table.row();
+        table.add(godModeLabel).left().padLeft(20);
+
 
 //        // TEST HARNESS
 //        table.row();
@@ -181,7 +190,7 @@ public class HUD implements Disposable{
 
         // update the labels
         timeLabel.setText(formatter.format(time) + "s");
-        scoreLabel.setText(String.format("%6d", score));
+        scoreLabel.setText(String.format("%d", score));
 
 
 //        // update posLabel
@@ -193,6 +202,7 @@ public class HUD implements Disposable{
 
     @Override
     public void dispose() {
+
         stage.dispose();
     }
 }

@@ -11,7 +11,7 @@ import com.isom.infrastructure.WikiJump;
 
 public class Battery extends RectInteractable {
 
-    public boolean collected = false;
+    private boolean collected = false;
 
     public Battery(World world, TiledMap map, Rectangle rect) {
         super(world, map, rect);
@@ -25,27 +25,33 @@ public class Battery extends RectInteractable {
     public void collectBy(Wiki wiki) {
 
         // 1. add score
-        if (!this.collected) HUD.addScore(100);
+        if (!this.collected) {
+            HUD.addScore(100);
 
-        // 2. play sound
-        Sound sound = WikiJump.assetManager.get("audio/sound/picked.mp3", Sound.class);
-        sound.play(0.3f);
+            // 2. play sound
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Sound sound = WikiJump.assetManager.get("audio/sound/picked.mp3", Sound.class);
+                    sound.play(0.3f);
+                }
+            }).run();
 
-        // 3. turn off collision for that body
-        collected = true;
+            // 3. turn off collision for that body
+            collected = true;
 
-        // 4. turn off rendering of this object
-        TiledMapTileLayer tileLayer = (TiledMapTileLayer) map.getLayers().get(2);
-        int lowerY = (int)(body.getPosition().y * WikiJump.PPM / 16);
-        int upperY = lowerY + 1;
-        int leftX = (int)(body.getPosition().x * WikiJump.PPM / 16);
-        int rightX = leftX + 1;
+            // 4. turn off rendering of this object
+            TiledMapTileLayer tileLayer = (TiledMapTileLayer) map.getLayers().get(2);
+            int lowerY = (int) (body.getPosition().y * WikiJump.PPM / 16);
+            int upperY = lowerY + 1;
+            int leftX = (int) (body.getPosition().x * WikiJump.PPM / 16);
+            int rightX = leftX + 1;
 
-        tileLayer.getCell(leftX, lowerY).setTile(null);
-        tileLayer.getCell(leftX, upperY).setTile(null);
-        tileLayer.getCell(rightX, lowerY).setTile(null);
-        tileLayer.getCell(rightX, upperY).setTile(null);
-
+            tileLayer.getCell(leftX, lowerY).setTile(null);
+            tileLayer.getCell(leftX, upperY).setTile(null);
+            tileLayer.getCell(rightX, lowerY).setTile(null);
+            tileLayer.getCell(rightX, upperY).setTile(null);
+        }
 
     }
 }

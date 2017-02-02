@@ -23,10 +23,10 @@ public class Wiki extends Sprite{
     public Direction direction;
 //    public boolean boosted = false;
     public boolean jumped = false;
-    public boolean shootable = true;
-    public float shootTimeCount = 0;
-    public float shootInterval = 0.5f;
-    public float jumpV = 6;
+    private boolean shootable = true;
+    private float shootTimeCount = 0;
+    private float shootInterval = 0.2f;
+    private float jumpV = 6;
 
     Sound sound = WikiJump.assetManager.get("audio/sound/wiki-shoot.wav", Sound.class);
 
@@ -36,7 +36,7 @@ public class Wiki extends Sprite{
     private static Texture wikiTexture = new Texture("Sprite/Wiki.png");
 //    private static Texture boost1Texture = new Texture("Sprite/Wiki_boost1.png");
     private static Texture boost2Texture = new Texture("Sprite/Wiki_boost2.png");
-    //private TextureRegion textureRegion;
+
 
 
 
@@ -44,7 +44,6 @@ public class Wiki extends Sprite{
 
         // TODO
         super(wikiTexture);
-        //textureRegion = new TextureRegion(getTexture());
         setBounds(0,0, side*3/WikiJump.PPM, side*3/WikiJump.PPM);
 
 
@@ -86,20 +85,20 @@ public class Wiki extends Sprite{
             if (!getTexture().equals(wikiTexture)) setTexture(wikiTexture);
         }
 
-//        if (!shootable) {
-//            shootTimeCount += delta;
-//        } else {
-//            shootTimeCount = 0;
-//        }
-//
-//        if (shootTimeCount >= shootInterval) {
-//            shootable = true;
-//        }
+        if (!shootable) {
+            shootTimeCount += delta;
+        } else {
+            shootTimeCount = 0;
+        }
+
+        if (shootTimeCount >= shootInterval) {
+            shootable = true;
+        }
     }
 
 
     public void shoot() {
-//        if (shootable) {
+        if (shootable) {
             if (direction == Direction.RIGHT)
                 playScreen.bullets.add(new Bullet(world, playScreen,
                         (int) ((body.getPosition().x) * WikiJump.PPM + side / 2 + 10),
@@ -111,7 +110,7 @@ public class Wiki extends Sprite{
                         (int) (body.getPosition().y * WikiJump.PPM),
                         direction));
 
-//        shootable = false;
+        shootable = false;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -119,22 +118,36 @@ public class Wiki extends Sprite{
                 sound.play(0.3f);
             }
         }).run();
-
+        }
     }
     public void die() {
 //        System.out.println("dead");
+        if (!WikiJump.godMode) {
+            Thread thread1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    HUD.addScore((int) (HUD.standardTime - HUD.getTime()));
+                    HUD.addHighScore();
+                }
+            });
 
-        HUD.addScore((int)(HUD.standardTime - HUD.getTime()));
-        HUD.addHighScore();
+            Thread thread2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Sound sound = WikiJump.assetManager.get("audio/sound/wiki-die.mp3", Sound.class);
+                    sound.play();//0.3f);
+                }
+            });
+
+            thread1.run();
+            thread2.run();
 
 
+            WikiJump game = playScreen.game;
+            game.gameOverScreen = new GameOverScreen(game, false);
+            game.setScreen(game.gameOverScreen);
 
-        WikiJump game = playScreen.game;
-        game.gameOverScreen = new GameOverScreen(game);
-        game.setScreen(game.gameOverScreen);
-
-        Sound sound = WikiJump.assetManager.get("audio/sound/wiki-die.mp3", Sound.class);
-        sound.play();//0.3f);
+        }
 
     }
 
@@ -168,11 +181,9 @@ public class Wiki extends Sprite{
         }
     }
 
-//    public void boost() {
-//        if (body.getLinearVelocity().y <= 6f) {
-//            body.applyLinearImpulse(new Vector2(0, jumpV), body.getWorldCenter(), true);
-//            boosted = true;
-//        }
-//
-//    }
+    public void boost() {
+
+        body.applyLinearImpulse(new Vector2(0, jumpV), body.getWorldCenter(), true);
+
+    }
 }
