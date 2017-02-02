@@ -140,8 +140,8 @@ public class PlayScreen implements Screen{
         if (wiki.body.getPosition().y < 0) {
             if (!WikiJump.godMode) wiki.die();
             else {
-                game.playScreen = new PlayScreen(game);
-                game.setScreen(game.playScreen);
+                game.gameOverScreen = new GameOverScreen(game, false);
+                game.setScreen(game.gameOverScreen);
             }
         }
 //        System.out.println("check dead");
@@ -166,7 +166,7 @@ public class PlayScreen implements Screen{
 
     @Override
     public void hide() {
-        dispose();
+
     }
 
     @Override
@@ -176,8 +176,8 @@ public class PlayScreen implements Screen{
         sentries.clear();
 
         map.dispose();
-        world.dispose();
-//        mapRenderer.dispose();
+//        world.dispose();
+        mapRenderer.dispose();
 //        debugRenderer.dispose();
         hud.dispose();
 

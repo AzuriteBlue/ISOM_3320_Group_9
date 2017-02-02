@@ -51,6 +51,10 @@ public class GameOverScreen implements Screen {
 
     public GameOverScreen(WikiJump game, boolean hasWon) {
 
+//        System.out.print("in");
+
+
+
         aboveFont = new BitmapFont(Gdx.files.internal("fonts/above/above.fnt")); //Gdx.files.internal("fonts/above_0.tga")
         aboveFont.getData().setScale(1.3f, 1.3f);
 
@@ -124,6 +128,7 @@ public class GameOverScreen implements Screen {
         table.add(exitButton).padTop(200);
 
         stage.addActor(table);
+
 
 
     }

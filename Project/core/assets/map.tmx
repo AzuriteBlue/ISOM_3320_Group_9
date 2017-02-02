@@ -7,7 +7,7 @@
   <image source="Sprite/Battery/smallBattery.png" width="320" height="213"/>
  </tileset>
  <imagelayer name="background">
-  <image source="Background/background.png" width="10000" height="480"/>
+  <image source="Background/background1.png" width="4978" height="479"/>
  </imagelayer>
  <layer name="platform" width="300" height="30">
   <data encoding="base64" compression="zlib">

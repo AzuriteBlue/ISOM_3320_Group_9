@@ -22,25 +22,29 @@ public class Gate extends RectInteractable {
 
     @Override
     public void onWikiHit(Wiki wiki) {
+
+
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
+                HUD.addScore((int) (HUD.standardTime - HUD.getTime()));
                 HUD.addScore(3000);
                 HUD.addHighScore();
             }
         });
 
-
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 Sound sound = WikiJump.assetManager.get("audio/sound/win.mp3", Sound.class);
-                sound.play();
+                sound.play();//0.3f);
             }
         });
 
+
         thread1.run();
         thread2.run();
+
 
         WikiJump game = playScreen.game;
         game.gameOverScreen = new GameOverScreen(game, true);

@@ -49,7 +49,7 @@ public class Wiki extends Sprite{
 
         this.world = world;
         this.playScreen = playScreen;
-        body = BodyCreator.createRectangleBody(world, 32, 150, side, side);
+        body = BodyCreator.createRectangleBody(world, 2500, 300, side, side); // 32 150
 //        body.getFixtureList().get(0).setFriction(5f);
         body.getFixtureList().get(0).setUserData(this);
 
