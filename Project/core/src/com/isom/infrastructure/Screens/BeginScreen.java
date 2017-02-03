@@ -41,7 +41,6 @@ public class BeginScreen implements Screen {
     BitmapFont aboveFont;
     BitmapFont captainFont;
 
-    Music music;
 
 
 
@@ -67,18 +66,6 @@ public class BeginScreen implements Screen {
 
         stage = new Stage(viewport, game.batch);
         Gdx.input.setInputProcessor(stage);
-
-
-        // 5. play music
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                music = WikiJump.assetManager.get("audio/music/House.mp3", Music.class);
-                music.setLooping(true);
-                music.setVolume(0.3f);
-                music.play();
-            }
-        }).run();
 
 
 
@@ -137,7 +124,7 @@ public class BeginScreen implements Screen {
         table.row();
         table.add(helpButton).padTop(200);
 //        table.row();
-//        table.add(highScoreButton).padTop(200);
+//        table.add(highScoreButton).padTop(150);
 
 
         stage.addActor(table);
@@ -182,7 +169,6 @@ public class BeginScreen implements Screen {
         stage.dispose();
         aboveFont.dispose();
         captainFont.dispose();
-        music.dispose();
 
     }
 }

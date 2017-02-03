@@ -4,21 +4,24 @@ package sprite;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import com.isom.infrastructure.Scene.HUD;
 import com.isom.infrastructure.Screens.GameOverScreen;
 import com.isom.infrastructure.Screens.PlayScreen;
 import com.isom.infrastructure.Util.BodyCreator;
 import com.isom.infrastructure.WikiJump;
 
+
 public class Wiki extends Sprite{
 
     public World world;
     public Body body;
     public PlayScreen playScreen;
-    private static int side = 8;
+    private static int side = 9;
 
     public Direction direction;
 //    public boolean boosted = false;
@@ -33,9 +36,22 @@ public class Wiki extends Sprite{
 
 
     // TODO
-    private static Texture wikiTexture = new Texture("Sprite/Wiki.png");
+//    private static Texture wikiTexture = new Texture("Sprite/Wiki.png");
+//    private static Texture wikiTexture;
+    private static Texture wikiTexture0 = new Texture("Sprite/Wiki/Wiki0.png");
+    private static Texture wikiTexture1 = new Texture("Sprite/Wiki/Wiki1.png");
+    private static Texture wikiTexture2 = new Texture("Sprite/Wiki/Wiki2.png");
 //    private static Texture boost1Texture = new Texture("Sprite/Wiki_boost1.png");
     private static Texture boost2Texture = new Texture("Sprite/Wiki_boost2.png");
+
+
+    private Animation runAnimation;
+//    private enum State {
+//        T0, T1, T2
+//    }
+//    State nowState = State.T0;
+//    State beforeState = State.T0;
+    private float stateTime;
 
 
 
@@ -43,7 +59,9 @@ public class Wiki extends Sprite{
     public Wiki(World world, PlayScreen playScreen) {
 
         // TODO
-        super(wikiTexture);
+        super(wikiTexture0);
+
+//        wikiTexture = wikiTexture0;
         setBounds(0,0, side*3/WikiJump.PPM, side*3/WikiJump.PPM);
 
 
@@ -55,6 +73,14 @@ public class Wiki extends Sprite{
 
         direction = Direction.RIGHT;
 
+
+        Array<Texture> frames = new Array<Texture>();
+        frames.add(wikiTexture0);
+        frames.add(wikiTexture1);
+        frames.add(wikiTexture2);
+        runAnimation = new Animation(0.1f, frames);
+
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -64,7 +90,6 @@ public class Wiki extends Sprite{
         }).run();
 
     }
-
 
 
     public void update(float delta) {
@@ -79,11 +104,18 @@ public class Wiki extends Sprite{
 //            if (!getTexture().equals(wikiTexture)) setTexture(wikiTexture);
 //        }
 
-        if (body.getLinearVelocity().y > 0.5) {
+        if (body.getLinearVelocity().y > 0) {
             if (!getTexture().equals(boost2Texture)) setTexture(boost2Texture);
-        } else {
-            if (!getTexture().equals(wikiTexture)) setTexture(wikiTexture);
+        } else if (body.getLinearVelocity().x != 0 && body.getLinearVelocity().y == 0) {
+
+            stateTime += delta;
+            setTexture((Texture) runAnimation.getKeyFrame(stateTime,true));
+
+//            if (!getTexture().equals(wikiTexture)) setTexture(wikiTexture);
         }
+
+
+
 
         if (!shootable) {
             shootTimeCount += delta;
@@ -94,6 +126,9 @@ public class Wiki extends Sprite{
         if (shootTimeCount >= shootInterval) {
             shootable = true;
         }
+
+
+
     }
 
 

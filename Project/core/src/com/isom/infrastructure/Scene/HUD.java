@@ -2,6 +2,7 @@ package com.isom.infrastructure.Scene;
 
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -47,13 +48,18 @@ public class HUD implements Disposable{
     private Table table;
     private Label scoreTitleLabel, scoreLabel;
     private Label timeTitleLabel, timeLabel; // "cd" for countdown
-    private Label posLabel;
+//    private Label posLabel;
     private static Label godModeLabel;
 
     private BitmapFont captainFont = new BitmapFont(Gdx.files.internal("fonts/captain/captain.fnt"));
-    private static Scanner scanner;
-    private static FileWriter fileWriter;
-    private static File load;
+
+    private static FileHandle file;
+
+
+
+//    private static Scanner scanner;
+//    private static FileWriter fileWriter;
+//    private static File load;
 
 
 
@@ -78,13 +84,16 @@ public class HUD implements Disposable{
         }
 
         String scoreStr = highScore[0] + " " + highScore[1] + " " + highScore[2] + " ";
-        try {
-            fileWriter = new FileWriter(load);
-            fileWriter.write(scoreStr);
-            fileWriter.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Cannot write into target file.");
-        }
+//        try {
+//            fileWriter = new FileWriter(load);
+//            fileWriter.write(scoreStr);
+//            fileWriter.close();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Cannot write into target file.");
+//        }
+        file.writeString(scoreStr, false);
+
+
     }
     public static int getHighScore(int index) {
         try {
@@ -105,26 +114,41 @@ public class HUD implements Disposable{
 
     public HUD(SpriteBatch batch, PlayScreen playScreen) {
 
-        load = new File("load/load.txt");
+//        load = new File("load/load.txt");
+//        try {
+//            scanner = new Scanner(load);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Game archive lost!");
+//        }
+
+
+//        try {
+//
+//            int i = 0;
+//            for (String str : scanner.nextLine().split(" ")) {
+//                highScore[i] = Integer.parseInt(str);
+//                i++;
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            for(int i=0; i<3; i++) {
+//                highScore[i] = 0;
+//            }
+//        }
+
+        file = Gdx.files.local("load/load.txt");
+        String fullStr;
         try {
-            scanner = new Scanner(load);
+            fullStr = file.readString();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Game archive lost!");
+            JOptionPane.showMessageDialog(null, "The load file is lost!");
+            fullStr = "0 0 0 ";
+
         }
-
-
-        try {
-
-            int i = 0;
-            for (String str : scanner.nextLine().split(" ")) {
-                highScore[i] = Integer.parseInt(str);
-                i++;
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-            for(int i=0; i<3; i++) {
-                highScore[i] = 0;
-            }
+//        System.out.print(fullStr);
+        String[] scoreStrArray = fullStr.split(" ");
+        for (int i=0; i<3; i++) {
+            highScore[i] = Integer.parseInt(scoreStrArray[i]);
         }
 
 
@@ -162,7 +186,7 @@ public class HUD implements Disposable{
         table.add(godModeLabel).left().padLeft(20);
 
 
-//        // TEST HARNESS
+        // TEST HARNESS
 //        table.row();
 //        posLabel = new Label("null",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 //        table.add(posLabel).expandX().left().padLeft(20);

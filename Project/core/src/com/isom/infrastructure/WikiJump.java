@@ -44,6 +44,18 @@ public class WikiJump extends Game {
 		assetManager.load("audio/sound/win.mp3", Sound.class);
 		assetManager.finishLoading();
 
+
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Music music = assetManager.get("audio/music/House.mp3", Music.class);
+				music.setLooping(true);
+				music.setVolume(0.3f);
+				music.play();
+			}
+		}).run();
+
+
 		beginScreen = new BeginScreen(this);
 		setScreen(beginScreen);
 

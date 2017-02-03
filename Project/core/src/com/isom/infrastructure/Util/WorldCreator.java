@@ -91,8 +91,14 @@ public class WorldCreator {
 
         return world;
     }
-    public static void createBastions(Array<Bastion> bastions, PlayScreen playScreen) {
+
+
+    public static void createEnemies(Array<Bastion> bastions, Array<Sentry> sentries, PlayScreen playScreen) {
         bastions.add(new Bastion(world, playScreen, 800, 110, 787, 940, Direction.RIGHT));
         bastions.add(new Bastion(world, playScreen, 1250, 300, 1000, 1250, Direction.LEFT));
+        bastions.add(new Bastion(world, playScreen, 1670, 120, 1520, 1675, Direction.LEFT));
+        sentries.add(new Sentry(world, playScreen, 1719, 300, Direction.LEFT));
+        sentries.add(new Sentry(world, playScreen, 2287, 200, Direction.LEFT));
+        bastions.add(new Bastion(world, playScreen, 2490, 175, 2485, 2850, Direction.RIGHT));
     }
 }

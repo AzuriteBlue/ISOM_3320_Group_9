@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.*;
@@ -64,7 +65,7 @@ public class PlayScreen implements Screen{
         bullets = new Array<Bullet>();
         bastions = new Array<Bastion>();
         sentries = new Array<Sentry>();
-        WorldCreator.createBastions(bastions, this);
+        WorldCreator.createEnemies(bastions, sentries, this);
 
 
         // 4. set a contact listener for our world
@@ -72,9 +73,6 @@ public class PlayScreen implements Screen{
         world.setContactFilter(new MyContactFilter(this, wiki));
 
 //        System.out.println(new Exception().getStackTrace()[1].getClassName());
-
-
-
     }
 
 
@@ -109,10 +107,11 @@ public class PlayScreen implements Screen{
         wiki.draw(game.batch);
         for (Bullet bullet : bullets) {bullet.draw(game.batch);}
         for (Bastion bastion : bastions) {bastion.draw(game.batch);}
+        for (Sentry sentry : sentries) {sentry.draw(game.batch);}
         game.batch.end();
 
         // 5. open debug renderer
-        //debugRenderer.render(world, cam.combined);
+//        debugRenderer.render(world, cam.combined);
 
     }
 

@@ -80,6 +80,12 @@ public class MyContactListener implements ContactListener {
         }
 
 
+        //only collide with the ground or wiki
+//        if ((fixtureA.getUserData() instanceof Sentry && (fixtureB.getUserData() instanceof Wiki))
+//            || (fixtureB.getUserData() instanceof Sentry && (fixtureB.getUserData() instanceof Wiki))) {
+//            Fixture sentryFix = fixtureA.getUserData() instanceof Sentry ? fixtureA : fixtureB;
+//            sentryFix.getBody().setType(BodyDef.BodyType.StaticBody);
+//        }
 
 
 
