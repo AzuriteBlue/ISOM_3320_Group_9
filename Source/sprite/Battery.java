@@ -24,8 +24,9 @@ public class Battery extends RectInteractable {
 
     public void collectBy(Wiki wiki) {
 
-        // 1. add score
+
         if (!this.collected) {
+            // 1. add score
             HUD.addScore(100);
 
             // 2. play sound

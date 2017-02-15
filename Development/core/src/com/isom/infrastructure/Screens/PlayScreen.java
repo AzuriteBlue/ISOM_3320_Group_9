@@ -124,6 +124,11 @@ public class PlayScreen implements Screen{
         // let camera follow wiki
         if (wiki.body.getPosition().x > 10.25) cam.position.x = wiki.body.getPosition().x;
 
+
+
+        // We chose not to use multi-threading here since it is unnecessary, costly and sometimes brings along 
+        // strange bugs concerning the game framework.
+
         hud.update(delta);
         wiki.update(delta);
         for (Bullet bullet : bullets) {bullet.update(delta);}

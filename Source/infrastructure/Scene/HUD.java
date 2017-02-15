@@ -57,14 +57,8 @@ public class HUD implements Disposable{
 
 
 
-//    private static Scanner scanner;
-//    private static FileWriter fileWriter;
-//    private static File load;
 
-
-
-
-
+    // getters & setters
 
     public static double getTime() {return time;}
     public static void addScore(int increment) {
@@ -84,16 +78,7 @@ public class HUD implements Disposable{
         }
 
         String scoreStr = highScore[0] + " " + highScore[1] + " " + highScore[2] + " ";
-//        try {
-//            fileWriter = new FileWriter(load);
-//            fileWriter.write(scoreStr);
-//            fileWriter.close();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Cannot write into target file.");
-//        }
         file.writeString(scoreStr, false);
-
-
     }
     public static int getHighScore(int index) {
         try {
@@ -114,28 +99,7 @@ public class HUD implements Disposable{
 
     public HUD(SpriteBatch batch, PlayScreen playScreen) {
 
-//        load = new File("load/load.txt");
-//        try {
-//            scanner = new Scanner(load);
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Game archive lost!");
-//        }
-
-
-//        try {
-//
-//            int i = 0;
-//            for (String str : scanner.nextLine().split(" ")) {
-//                highScore[i] = Integer.parseInt(str);
-//                i++;
-//            }
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            for(int i=0; i<3; i++) {
-//                highScore[i] = 0;
-//            }
-//        }
-
+        // read high score from load file
         file = Gdx.files.local("load/load.txt");
         String fullStr;
         try {
@@ -143,12 +107,21 @@ public class HUD implements Disposable{
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "The load file is lost!");
             fullStr = "0 0 0 ";
-
         }
-//        System.out.print(fullStr);
         String[] scoreStrArray = fullStr.split(" ");
+        int thisScore;
         for (int i=0; i<3; i++) {
-            highScore[i] = Integer.parseInt(scoreStrArray[i]);
+            try {
+                thisScore = Integer.parseInt(scoreStrArray[i]);
+            } catch (Exception e) {
+                thisScore = 0;
+                JOptionPane.showMessageDialog(null, "The load file has been messed up.\nOne of the high scores will be re-initialized.");
+            }
+            if (thisScore > 8000) {
+                thisScore = 0;
+                JOptionPane.showMessageDialog(null, "The load file has been messed up.\nOne of the high scores will be re-initialized.");
+            }
+            highScore[i] = thisScore;
         }
 
 
@@ -190,17 +163,6 @@ public class HUD implements Disposable{
 //        table.row();
 //        posLabel = new Label("null",new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 //        table.add(posLabel).expandX().left().padLeft(20);
-
-        // test
-//        timeLabel.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                super.clicked(event, x, y);
-//                System.out.print(1);
-//            }
-//        });
-
-
 
         stage.addActor(table);
     }

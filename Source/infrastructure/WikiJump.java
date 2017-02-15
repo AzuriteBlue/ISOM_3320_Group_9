@@ -5,10 +5,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.isom.infrastructure.Screens.BeginScreen;
-import com.isom.infrastructure.Screens.GameOverScreen;
-import com.isom.infrastructure.Screens.PlayScreen;
-import com.isom.infrastructure.Screens.ScoreScreen;
+import com.isom.infrastructure.Screens.*;
 
 public class WikiJump extends Game {
 
@@ -27,14 +24,16 @@ public class WikiJump extends Game {
     public BeginScreen beginScreen;
     public GameOverScreen gameOverScreen;
     public ScoreScreen scoreScreen;
+    public HelpScreen helpScreen;
 
 	
 	@Override
 	public void create () {
 
 		batch = new SpriteBatch();
-		assetManager = new AssetManager();
 
+		// load all music/sound assets
+		assetManager = new AssetManager();
 		assetManager.load("audio/music/House.mp3", Music.class);
 		assetManager.load("audio/sound/wiki-shoot.wav", Sound.class);
 		assetManager.load("audio/sound/wiki-die.mp3", Sound.class);
@@ -59,15 +58,11 @@ public class WikiJump extends Game {
 		beginScreen = new BeginScreen(this);
 		setScreen(beginScreen);
 
-//		PlayScreen playScreen  = new PlayScreen(this);
-//		setScreen(playScreen);
-
 	}
 
 	@Override
 	public void render () {
 		super.render();
-//		System.out.println(getScreen());
 	}
 	
 	@Override

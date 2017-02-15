@@ -6,6 +6,8 @@ import com.isom.infrastructure.WikiJump;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
+
+		// start game with lwjgl
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new WikiJump(), config);
 	}

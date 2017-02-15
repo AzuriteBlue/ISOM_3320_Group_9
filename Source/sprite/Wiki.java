@@ -24,20 +24,12 @@ public class Wiki extends Sprite{
     private static int side = 9;
 
     public Direction direction;
-//    public boolean boosted = false;
     public boolean jumped = false;
     private boolean shootable = true;
     private float shootTimeCount = 0;
     private float shootInterval = 0.2f;
     private float jumpV = 6;
 
-    Sound sound = WikiJump.assetManager.get("audio/sound/wiki-shoot.wav", Sound.class);
-
-
-
-    // TODO
-//    private static Texture wikiTexture = new Texture("Sprite/Wiki.png");
-//    private static Texture wikiTexture;
     private static Texture wikiTexture0 = new Texture("Sprite/Wiki/Wiki0.png");
     private static Texture wikiTexture1 = new Texture("Sprite/Wiki/Wiki1.png");
     private static Texture wikiTexture2 = new Texture("Sprite/Wiki/Wiki2.png");
@@ -46,41 +38,33 @@ public class Wiki extends Sprite{
 
 
     private Animation runAnimation;
-//    private enum State {
-//        T0, T1, T2
-//    }
-//    State nowState = State.T0;
-//    State beforeState = State.T0;
     private float stateTime;
-
 
 
 
     public Wiki(World world, PlayScreen playScreen) {
 
-        // TODO
         super(wikiTexture0);
 
-//        wikiTexture = wikiTexture0;
         setBounds(0,0, side*3/WikiJump.PPM, side*3/WikiJump.PPM);
-
 
         this.world = world;
         this.playScreen = playScreen;
+
+        // spawn wiki
         body = BodyCreator.createRectangleBody(world, 32, 150, side, side); // 32 150
 //        body.getFixtureList().get(0).setFriction(5f);
         body.getFixtureList().get(0).setUserData(this);
-
         direction = Direction.RIGHT;
 
-
+        // create running animation
         Array<Texture> frames = new Array<Texture>();
         frames.add(wikiTexture0);
         frames.add(wikiTexture1);
         frames.add(wikiTexture2);
         runAnimation = new Animation(0.1f, frames);
 
-
+        // play spawn sound
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -95,28 +79,16 @@ public class Wiki extends Sprite{
     public void update(float delta) {
         setPosition(body.getPosition().x - getWidth()/2, body.getPosition().y - getHeight()/2);
 
-//        // change texture when boosting
-//        if (body.getLinearVelocity().y > jumpV) {
-//            setTexture(boost2Texture);
-//        } else if (body.getLinearVelocity().y > 0) {
-//            setTexture(boost1Texture);
-//        } else {
-//            if (!getTexture().equals(wikiTexture)) setTexture(wikiTexture);
-//        }
-
+        // change texture according to current state
+        // (jumping or running)
         if (body.getLinearVelocity().y > 0) {
             if (!getTexture().equals(boost2Texture)) setTexture(boost2Texture);
         } else if (body.getLinearVelocity().x != 0 && body.getLinearVelocity().y == 0) {
-
             stateTime += delta;
             setTexture((Texture) runAnimation.getKeyFrame(stateTime,true));
-
-//            if (!getTexture().equals(wikiTexture)) setTexture(wikiTexture);
         }
 
-
-
-
+        // prevent wiki from shooting too often
         if (!shootable) {
             shootTimeCount += delta;
         } else {
@@ -156,7 +128,10 @@ public class Wiki extends Sprite{
         }
     }
     public void die() {
+
 //        System.out.println("dead");
+
+        // under god mode, nothing happens
         if (!WikiJump.godMode) {
             Thread thread1 = new Thread(new Runnable() {
                 @Override
@@ -187,23 +162,28 @@ public class Wiki extends Sprite{
     }
 
     public void run(Direction direction) {
+
+        // turn
         if (this.direction != direction) {
             this.flip(true,false);
             this.direction = direction;
         }
+
+        // move body
         switch (direction) {
 
             case LEFT:{
                 if (body.getLinearVelocity().x >= -2)
-                    body.applyLinearImpulse(new Vector2(-0.4f, 0), body.getWorldCenter(), true);
+                    body.applyLinearImpulse(new Vector2(-0.3f, 0), body.getWorldCenter(), true);
 //                    body.setLinearVelocity(-2f,body.getLinearVelocity().y);
-
+                break;
             }
 
             case RIGHT:{
                 if (body.getLinearVelocity().x <= 2)
                     body.applyLinearImpulse(new Vector2(0.3f, 0), body.getWorldCenter(), true);
 //                    body.setLinearVelocity(2f,body.getLinearVelocity().y);
+                break;
             }
         }
         //System.out.println(body.getLinearVelocity());
@@ -218,7 +198,7 @@ public class Wiki extends Sprite{
 
     public void boost() {
 
+        // only gets called under god mode
         body.applyLinearImpulse(new Vector2(0, jumpV), body.getWorldCenter(), true);
-
     }
 }

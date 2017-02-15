@@ -15,6 +15,9 @@ public class Ladder extends RectInteractable {
 
     @Override
     public void onWikiHit(Wiki wiki) {
+
+        // if wiki is not falling straight down
+        // to prevent multiple continuous boost from one ladder
         if (wiki.body.getLinearVelocity().y >= 0 || wiki.body.getLinearVelocity().x != 0)
             wiki.body.applyLinearImpulse(new Vector2(0, 8f - wiki.body.getLinearVelocity().y), wiki.body.getWorldCenter(), true);
 

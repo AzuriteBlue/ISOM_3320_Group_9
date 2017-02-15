@@ -11,6 +11,7 @@ import com.isom.infrastructure.Util.BodyCreator;
 import com.isom.infrastructure.WikiJump;
 
 public class Bullet extends Sprite {
+
     public World world;
     public Body body;
     public PlayScreen playScreen;
@@ -39,10 +40,11 @@ public class Bullet extends Sprite {
         this.playScreen = playScreen;
         body = BodyCreator.createRectangleBody(world, posX, posY, sideX, sideY);
         body.getFixtureList().get(0).setUserData(this);
+
+        // no gravity for bullets
         body.setGravityScale(0);
 
         this.direction = direction;
-
         if (direction == Direction.RIGHT) {
             body.setLinearVelocity(4f, 0);
         } else {

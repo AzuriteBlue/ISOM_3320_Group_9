@@ -57,6 +57,7 @@ public class Sentry extends Enemy {
         super.update(delta);
 
         // shoot
+        // shoot 6 continuous bullets, wait for some time, shoot 6 again.
         if (i<5) {
             if (timeCount != 0) timeCount = 0;
             if (HUD.getTime() > nextShootTime) {
@@ -71,7 +72,7 @@ public class Sentry extends Enemy {
         }
 
 
-
+        // spawn higher than ground level, when it touches the ground, set it to be static.
         if (!isFixed && body.getLinearVelocity().y == 0) {
             body.setType(BodyDef.BodyType.StaticBody);
             isFixed = true;

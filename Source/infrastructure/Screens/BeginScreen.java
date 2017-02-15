@@ -3,20 +3,18 @@ package com.isom.infrastructure.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.isom.infrastructure.Util.ToPlayScreen;
+import com.isom.infrastructure.Util.ToScreen;
 import com.isom.infrastructure.WikiJump;
-import sprite.Wiki;
 
 public class BeginScreen implements Screen {
 
@@ -34,7 +32,6 @@ public class BeginScreen implements Screen {
 
     TextButton startButton;
     TextButton helpButton;
-//    TextButton highScoreButton;
 
 
     // bitmap font
@@ -46,14 +43,13 @@ public class BeginScreen implements Screen {
 
     public BeginScreen(WikiJump game) {
 
-        aboveFont = new BitmapFont(Gdx.files.internal("fonts/above/above.fnt")); //Gdx.files.internal("fonts/above_0.tga")
+        aboveFont = new BitmapFont(Gdx.files.internal("fonts/above/above.fnt"));
         aboveFont.getData().setScale(1.3f, 1.3f);
 
         captainFont = new BitmapFont(Gdx.files.internal("fonts/captain/captain.fnt"));
         captainFont.getData().setScale(1.3f, 1.3f);
 
 
-        // test
         skin = new Skin(Gdx.files.internal("skin/skin/flat-earth-ui.json"));
 
         this.game = game;
@@ -87,34 +83,15 @@ public class BeginScreen implements Screen {
         titleLabel = new Label("<WIKIJUMP />", new Label.LabelStyle(aboveFont, Color.WHITE));
 
         startButton = new TextButton("START", skin);
-        startButton.addListener(new ToPlayScreen(game));
+        startButton.addListener(new ToScreen(game, ToScreen.ScreenType.PLAY));
         startButton.center();
 
 
 
 
-        //TODO: helpScreen
-
         helpButton = new TextButton("HELP", skin);
-        helpButton.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-
-            }
-        });
+        helpButton.addListener(new ToScreen(game, ToScreen.ScreenType.HELP));
         helpButton.center();
-
-
-
-//        highScoreButton = new TextButton("SCORE", skin);
-//        highScoreButton.addListener(new ClickListener(){
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                game.scoreScreen = new ScoreScreen(game);
-//                game.setScreen(game.scoreScreen);
-//            }
-//        });
-//        highScoreButton.center();
 
 
 
@@ -123,8 +100,6 @@ public class BeginScreen implements Screen {
         table.add(startButton).padTop(1200);
         table.row();
         table.add(helpButton).padTop(200);
-//        table.row();
-//        table.add(highScoreButton).padTop(150);
 
 
         stage.addActor(table);

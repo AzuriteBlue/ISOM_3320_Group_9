@@ -120,11 +120,14 @@ public class PlayScreen implements Screen{
         world.step(1/60f, 6, 2);
 
         InputHandler.handleInput(wiki);
-//        System.out.println("handle input");
 
         // let camera follow wiki
         if (wiki.body.getPosition().x > 10.25) cam.position.x = wiki.body.getPosition().x;
-//        System.out.println("cam follow");
+
+
+
+        // We chose not to use multi-threading here since it is unnecessary, costly and sometimes brings along 
+        // strange bugs concerning the game framework.
 
         hud.update(delta);
         wiki.update(delta);
@@ -133,9 +136,9 @@ public class PlayScreen implements Screen{
         for (Sentry sentry : sentries) {sentry.update(delta);}
         cam.update();
         mapRenderer.setView(cam);
-//        System.out.println("updates");
 
         // set anything as dead if it fell off a cliff
+        // even if in god mode
         if (wiki.body.getPosition().y < 0) {
             if (!WikiJump.godMode) wiki.die();
             else {
@@ -143,9 +146,6 @@ public class PlayScreen implements Screen{
                 game.setScreen(game.gameOverScreen);
             }
         }
-//        System.out.println("check dead");
-
-
     }
 
     @Override

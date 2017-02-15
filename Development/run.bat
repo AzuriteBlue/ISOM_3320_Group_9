@@ -1,1 +1,1 @@
-gradlew desktop:run
+gradlew desktop:run>log.txt

@@ -13,9 +13,7 @@ public class Bastion extends Enemy {
 
     private static int side = 18;
 
-    // TODO
     private static Texture bastionTexture = new Texture("Sprite/Bastion.png");
-    //private TextureRegion textureRegion;
 
     private int leftLimit;
     private int rightLimit;
@@ -34,20 +32,20 @@ public class Bastion extends Enemy {
         this.rightLimit = rightLimit;
         this.direction = direction;
 
-
-        //textureRegion = new TextureRegion(getTexture());
         setBounds(0,0, side*2.3f/ WikiJump.PPM, side*2.3f/WikiJump.PPM);
 
         body = BodyCreator.createRectangleBody(world, posX, posY, side, side);
         body.getFixtureList().get(0).setUserData(this);
-
 
     }
 
 
 
     public void update(float delta) {
+
         super.update(delta);
+
+        // move
         switch (direction) {
             case LEFT: {
                 body.setLinearVelocity(-0.5f, 0);
@@ -58,8 +56,9 @@ public class Bastion extends Enemy {
                 break;
             }
         }
-        currentX = (int)(getX()*WikiJump.PPM);
 
+        // turn
+        currentX = (int)(getX()*WikiJump.PPM);
         if (currentX < leftLimit) {
             direction = Direction.RIGHT;
             this.flip(true,false);
@@ -100,10 +99,14 @@ public class Bastion extends Enemy {
     @Override
     public void die() {
         super.die();
+
+        // remove reference
         if (playScreen.bastions.contains(this, true)) {
             int index = playScreen.bastions.indexOf(this, true);
             playScreen.bastions.removeIndex(index);
         }
+
+
         HUD.addScore(70);
     }
 }

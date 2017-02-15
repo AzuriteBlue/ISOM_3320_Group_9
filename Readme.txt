@@ -12,7 +12,7 @@ HOW TO OPEN THE GAME:
 2. (Not Recommended) Development version: 
 
     This is how we test the game while developing so its less recommended.
-    Opening the game in this way may take some time for the first time as some development utilities and dependency packages need to be loaded.
+    Opening the game in this way may take some several minutes for the first time as some development utilities and dependency packages need to be loaded.
 
     Go into the "Development" folder. 
     - If you are on a windows machine, run "run.bat" and wait till the game starts.
@@ -20,6 +20,7 @@ HOW TO OPEN THE GAME:
         1. Open console
         2. change directory to this directory
         3. use "gradlew desktop:run" command
+    There could be warnings about JRE version but actually there's nothing wrong.
 
 No matter opened in which way, the game is identical, except for they do not share the same high score archive.
 
