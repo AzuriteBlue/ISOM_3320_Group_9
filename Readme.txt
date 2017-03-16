@@ -1,3 +1,11 @@
+WHAT IS THIS:
+
+This is the final project for ISOM 3320 (2016 winter), a game called WikiJump.
+WikiJump is implemented in Java using a popular game framework - LibGdx.
+For more information, see "Introduction to WikiJump.html". 
+
+
+
 HOW TO OPEN THE GAME:
 
 1. (Recommended) JAR version: 
